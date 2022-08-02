@@ -32,6 +32,8 @@
   color: var(--primary-text-color);
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
+  position: relative;
+  top: 82px;
 }
 .list {
   list-style: none;
@@ -68,6 +70,11 @@ img {
 
 .page .header {
   border: 1px solid #ececec;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
 
   align-items: center;
   background-color: #ffffff;
@@ -118,7 +125,7 @@ img {
   letter-spacing: 0.02em;
   transition-property: color, transform;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-nav .link.current {
   color: var(--accent-color);
@@ -145,7 +152,7 @@ img {
 
   transition-property: color, transform;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon-mail {
@@ -237,7 +244,7 @@ img {
 
   transition-property: background-color, transform;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero .button:hover,
 .hero .button:focus {
@@ -271,7 +278,7 @@ img {
 
   transition-property: color, background-color, transform;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-list .button:hover,
@@ -398,8 +405,6 @@ img {
 .team-social-list {
   width: 206px;
   height: 44px;
-  /* margin-left: auto;
-  margin-right: auto; */
   display: flex;
 }
 
@@ -415,11 +420,11 @@ img {
   color: var(--social-icon-color);
   width: 44px;
   height: 44px;
-  cursor: pointer;
   border-radius: 50%;
+
   transition-property: color, background-color;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-icon {
@@ -450,24 +455,24 @@ img {
   align-items: center;
   border: var(--social-icon-color) solid 1px;
   border-radius: 4px;
+  color: var(--social-icon-color);
 
-  transition-property: color, background-color, transform;
+  transition-property: color, border, fill, transform;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-icon {
-  fill: var(--social-icon-color);
+  fill: currentColor;
 }
 .client-link:hover,
 .client-link:focus {
   border: var(--accent-color) solid 1px;
-  border-radius: 4px;
-  color: var(--primary-text-color);
+  color: var(--accent-color);
   transform: scale(105%);
 }
 .client-icon:hover,
 .client-icon:focus {
-  fill: var(--accent-color);
+  fill: currentColor;
 }
 
 /* -------GALERY-------- */
@@ -486,7 +491,7 @@ img {
   color: inherit;
   transition-property: transform, box-shadow;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .prewiew-card-link:hover,
 .prewiew-card-link:focus {
@@ -609,7 +614,7 @@ img {
   border-radius: 50%;
   transition-property: color, background-color;
   transition-duration: 250ms;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-icon {
   width: 20px;
@@ -621,3 +626,73 @@ img {
   background-color: var(--accent-color);
   color: var(--button-text-color);
 }
+
+/* ---------Animation---------- */
+/* .box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #bdbdbd;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  overflow: hidden;
+}
+
+.box:hover .overlay,
+.box:focus .overlay {
+  transform: translateX(0);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3f51b5;
+  opacity: 0.5;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay > p {
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.overlay code {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #2a2a2a;
+}
+
+.box2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: tomato;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+ */
+/*  Задаём значения перехода  */
+/*   transition: background-color 500ms linear, transform 900ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+  opacity: 0.5;
+} */
+
+/* При ховере меняем значения анимируемых свойств */
+
+/* 
+.box2:hover {
+  background-color: teal;
+  transform: rotatez(90deg);
+  transform: perspective(400px) rotateX(60deg);
+  opacity: 1;
+} */
