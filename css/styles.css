@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  /* outline: 1px solid rgb(250, 195, 175);
+  /*  outline: 1px solid rgb(250, 195, 175);
   background-color: rgba(0, 255, 106, 0.1); */
 }
 
@@ -33,7 +33,7 @@
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
   position: relative;
-  top: 82px;
+  top: 80px;
 }
 .list {
   list-style: none;
@@ -69,7 +69,7 @@ img {
 /* --------HEADER-------- */
 
 .page .header {
-  border: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
   position: fixed;
   left: 0;
   right: 0;
@@ -129,11 +129,23 @@ img {
 }
 .menu-nav .link.current {
   color: var(--accent-color);
+  position: relative;
+}
+.link.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+
+  position: absolute;
+  left: 0;
+  bottom: -2px;
 }
 .menu-nav .link:hover,
 .menu-nav .link:focus {
   color: var(--accent-color);
-  transform: scale(105%);
+  /* transform: scale(105%); */
 }
 /* ---------Adress Nav------- */
 .adress-nav {
@@ -176,7 +188,7 @@ img {
 .link-container:hover,
 .link-container:focus {
   color: var(--accent-color);
-  transform: scale(105%);
+  /* transform: scale(105%); */
 }
 
 .nav-item:not(:last-child) {
@@ -252,6 +264,66 @@ img {
   background-color: #188ce8;
   transform: scale(105%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* --------модалка-------- */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  background-color: #fff;
+}
+
+.modal .button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
+}
+
+.modal-icon {
+  width: 11px;
+  height: 11px;
+}
+
+.modal .button:hover,
+.modal .button:focus {
+  color: var(--button-text-color);
+  background-color: var(--accent-color);
+  transform: scale(100%);
+  box-shadow: none;
 }
 
 /* --------Filter Button-------- */
@@ -349,7 +421,7 @@ img {
   margin: 0;
 }
 
-/* Work */
+/* --------Work-------- */
 .work {
   padding-top: 0;
   padding-bottom: 94px;
@@ -359,12 +431,32 @@ img {
 }
 .work-img-item {
   margin-right: 30px;
+  position: relative;
 }
 .work-img-item:last-child {
   margin-right: 0;
 }
+.work-label-container {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  display: flex;
 
-/* Our Team */
+  width: 370px;
+  height: 70px;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+.work-label-title {
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+/* --------Our Team-------- */
 .team-section {
   background: #f5f4fa;
 }
@@ -489,7 +581,7 @@ img {
 .prewiew-card-link {
   display: block;
   color: inherit;
-  transition-property: transform, box-shadow;
+  transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -497,7 +589,6 @@ img {
 .prewiew-card-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  transform: scale(101%);
 }
 .prewiew-card-list .list-item:nth-child(3n) {
   margin-right: 0;
@@ -505,10 +596,46 @@ img {
 .prewiew-card-list .list-item:nth-child(-n + 3) {
   margin-top: 0;
 }
+.prewiew-box {
+  position: relative;
+  overflow: hidden;
+}
+.prewiew-overlay {
+  background-color: rgba(33, 150, 243, 0.9);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prewiew-box:hover .prewiew-overlay,
+.prewiew-box:focus .prewiew-overlay {
+  transform: translateX(0);
+}
+
+.prewiew-overlay p {
+  color: var(--button-text-color);
+  font-size: 18px;
+  line-height: 1.56;
+  width: 322px;
+  height: 168px;
+  margin: 0;
+}
+
 .prewiew-card-sighn {
+  background-color: #fff;
   padding: 20px 24px;
   border: 1px solid #eeeeee;
   border-top: 0;
+  position: relative;
 }
 .prewiew-work-title {
   font-weight: 700;
@@ -626,73 +753,3 @@ img {
   background-color: var(--accent-color);
   color: var(--button-text-color);
 }
-
-/* ---------Animation---------- */
-/* .box {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #bdbdbd;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-
-  overflow: hidden;
-}
-
-.box:hover .overlay,
-.box:focus .overlay {
-  transform: translateX(0);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #3f51b5;
-  opacity: 0.5;
-
-  transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.overlay > p {
-  color: #fff;
-  padding: 10px;
-  margin: 0;
-  font-size: 18px;
-}
-
-.overlay code {
-  display: inline-block;
-  padding: 2px 4px;
-  border-radius: 2px;
-  background-color: #fff;
-  color: #2a2a2a;
-}
-
-.box2 {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  background-color: tomato;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
- */
-/*  Задаём значения перехода  */
-/*   transition: background-color 500ms linear, transform 900ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
-  opacity: 0.5;
-} */
-
-/* При ховере меняем значения анимируемых свойств */
-
-/* 
-.box2:hover {
-  background-color: teal;
-  transform: rotatez(90deg);
-  transform: perspective(400px) rotateX(60deg);
-  opacity: 1;
-} */
