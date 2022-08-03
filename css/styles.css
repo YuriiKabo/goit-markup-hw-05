@@ -277,13 +277,14 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 
-  transition-property: opacity;
+  transition-property: opacity, visibility;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
+  visibility: 0;
   pointer-events: none;
 }
 .modal {
@@ -616,8 +617,8 @@ img {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.prewiew-box:hover .prewiew-overlay,
-.prewiew-box:focus .prewiew-overlay {
+.list-item:hover .prewiew-overlay,
+.list-item:focus .prewiew-overlay {
   transform: translateX(0);
 }
 
