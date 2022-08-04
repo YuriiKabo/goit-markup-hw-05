@@ -532,7 +532,7 @@ img {
   fill: currentColor;
 }
 .team-social-link:hover,
-.team-social-iink:focus {
+.team-social-link:focus {
   background-color: var(--accent-color);
   color: var(--button-text-color);
 }
