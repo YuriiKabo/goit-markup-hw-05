@@ -33,7 +33,7 @@
   font-family: Roboto, sans-serif;
   letter-spacing: 0.03em;
   position: relative;
-  top: 80px;
+  padding-top: 80px;
 }
 .list {
   list-style: none;
