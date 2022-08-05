@@ -545,14 +545,13 @@ img {
 .clients-list {
   display: flex;
 }
-.client-item {
-  width: 170px;
-  height: 92px;
-}
+
 .client-item:not(:last-child) {
   margin-right: 30px;
 }
 .client-link {
+  width: 170px;
+  height: 92px;
   display: flex;
   justify-content: center;
   align-items: center;
